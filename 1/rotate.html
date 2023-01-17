@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>rotateプロパティ</title>
+  <style>
+  .container {
+    position: relative;
+    margin-left: 50px;
+    padding-top: 50px;
+    padding-right: 20px;
+    border-width: 0 0 1px 1px;
+    border-style: solid;
+    border-color: silver;
+  }
+
+  .base,
+  .target {
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    opacity: 0.8;
+  }
+
+  .base {
+    border: 3px dashed currentcolor;
+  }
+
+  .target {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: currentcolor;
+  }
+
+  .rotate {
+    color: tomato;
+  }
+
+  .transform {
+    color: skyblue;
+  }
+  </style>
+</head>
+<body>
+
+<p><code>rotate: 45deg</code></p>
+<div class="container">
+  <div class="base rotate"></div>
+  <div class="target rotate" style="rotate: 45deg"></div>
+</div>
+
+<p><code>transform: rotate(45deg)</code></p>
+<div class="container">
+  <div class="base transform"></div>
+  <div class="target transform" style="transform: rotate(45deg)"></div>
+</div>
+
+</body>
+</html>

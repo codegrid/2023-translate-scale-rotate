@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>translate()関数を繰り返す</title>
+  <style>
+  .container {
+    position: relative;
+    margin-top: 50px;
+    margin-left: 50px;
+    padding-top: 50px;
+    padding-right: 20px;
+    border-width: 0 0 1px 1px;
+    border-style: solid;
+    border-color: silver;
+  }
+
+  .base,
+  .target {
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    opacity: 0.8;
+  }
+
+  .base {
+    border: 3px dashed tomato;
+  }
+
+  .target {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: tomato;
+    transition: transform 0.25s linear;
+  }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="base"></div>
+  <div class="target"></div>
+</div>
+
+<script>
+(() => {
+  const target = document.querySelector(".target");
+  const translate = [
+    [0, -50],
+    [200, 0],
+    [0, 50]
+  ]
+  let count = 0;
+  target.addEventListener("click", () => {
+    if (count < translate.length) {
+      const [x, y] = translate[count];
+      target.style.transform = target.style.transform + ` translate(${x}px, ${y}px)`;
+      count = count + 1;
+    } else {
+      target.style.transform = "";
+      count = 0;
+    }
+  })
+})();
+</script>
+
+</body>
+</html>

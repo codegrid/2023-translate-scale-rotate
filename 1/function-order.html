@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>transformプロパティの関数は書く順が影響する</title>
+  <style>
+  .container {
+    position: relative;
+    margin-left: 50px;
+    padding-top: 50px;
+    padding-right: 20px;
+    border-width: 0 0 1px 1px;
+    border-style: solid;
+    border-color: silver;
+  }
+
+  .base,
+  .target {
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    opacity: 0.8;
+  }
+
+  .base {
+    border: 3px dashed currentcolor;
+  }
+
+  .target {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: currentcolor;
+  }
+
+
+  .transform-rotate-scale {
+    color: tomato;
+  }
+
+  .translate-scale-rotate {
+    color: violet;
+  }
+
+  .scale-rotate-translate {
+    color: skyblue;
+  }
+
+  .scale-translate-rotate {
+    color: lightseagreen;
+  }
+
+  .rotate-translate-scale {
+    color: limegreen;
+  }
+
+  .rotate-scale-translate {
+    color: lightcoral;
+  }
+  </style>
+</head>
+<body>
+
+<p><code>transform: translate(150px, -50px) rotate(45deg) scale(1.5, 0.5)</code></p>
+<div class="container">
+  <div class="base transform-rotate-scale"></div>
+  <div class="target transform-rotate-scale"
+       style="transform: translate(150px, -50px) rotate(45deg) scale(1.5, 0.5)"></div>
+</div>
+
+<p><code>transform: translate(150px, -50px) scale(1.5, 0.5) rotate(45deg)</code></p>
+<div class="container">
+  <div class="base translate-scale-rotate"></div>
+  <div class="target translate-scale-rotate"
+       style="transform: translate(150px, -50px) scale(1.5, 0.5) rotate(45deg)"></div>
+</div>
+
+<p><code>transform: scale(1.5, 0.5) rotate(45deg) translate(150px, -50px)</code></p>
+<div class="container">
+  <div class="base scale-rotate-translate"></div>
+  <div class="target scale-rotate-translate"
+       style="transform: scale(1.5, 0.5) rotate(45deg) translate(150px, -50px)"></div>
+</div>
+
+<p><code>transform: scale(1.5, 0.5) translate(150px, -50px) rotate(45deg)</code></p>
+<div class="container">
+  <div class="base scale-translate-rotate"></div>
+  <div class="target scale-translate-rotate"
+       style="transform: scale(1.5, 0.5) translate(150px, -50px) rotate(45deg) "></div>
+</div>
+
+<p><code>transform: rotate(45deg) translate(150px, -50px) scale(1.5, 0.5)</code></p>
+<div class="container">
+  <div class="base rotate-translate-scale"></div>
+  <div class="target rotate-translate-scale"
+       style="transform: rotate(45deg) translate(150px, -50px) scale(1.5, 0.5)"></div>
+</div>
+
+<p><code>transform: rotate(45deg) scale(1.5, 0.5) translate(150px, -50px)</code></p>
+<div class="container">
+  <div class="base rotate-scale-translate"></div>
+  <div class="target rotate-scale-translate"
+       style="transform: rotate(45deg) scale(1.5, 0.5) translate(150px, -50px)"></div>
+</div>
+
+</body>
+</html>

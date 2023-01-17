@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>個別プロパティの書き順は影響を与えない</title>
+  <style>
+  .container {
+    position: relative;
+    margin-left: 50px;
+    padding-top: 50px;
+    padding-right: 20px;
+    border-width: 0 0 1px 1px;
+    border-style: solid;
+    border-color: silver;
+  }
+
+  .base,
+  .target {
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    opacity: 0.8;
+  }
+
+  .base {
+    border: 3px dashed currentcolor;
+  }
+
+  .target {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: currentcolor;
+  }
+
+  .translate-scale-rotate {
+    color: tomato;
+  }
+
+  .scale-rotate-transform {
+    color: skyblue;
+  }
+
+  .rotate-transform-scale {
+    color: limegreen;
+  }
+  </style>
+</head>
+<body>
+
+<p><code>translate: 150px -50px; scale: 1.5 0.5; rotate: 45deg;</code></p>
+<div class="container">
+  <div class="base translate-scale-rotate"></div>
+  <div class="target translate-scale-rotate" style="translate: 150px -50px; scale: 1.5 0.5; rotate: 45deg;"></div>
+</div>
+
+<p><code>scale: 1.5 0.5; rotate: 45deg; translate: 150px -50px;</code></p>
+<div class="container">
+  <div class="base scale-rotate-transform"></div>
+  <div class="target scale-rotate-transform" style="scale: 1.5 0.5; rotate: 45deg; translate: 150px -50px;"></div>
+</div>
+
+<p><code>rotate: 45deg; translate: 150px -50px; scale: 1.5 0.5;</code></p>
+<div class="container">
+  <div class="base rotate-transform-scale"></div>
+  <div class="target rotate-transform-scale" style="rotate: 45deg; translate: 150px -50px; scale: 1.5 0.5;"></div>
+</div>
+
+</body>
+</html>
