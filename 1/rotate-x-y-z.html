@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>rotateプロパティ 2</title>
+  <style>
+  .container {
+    position: relative;
+    margin-left: 50px;
+    padding-top: 50px;
+    padding-right: 20px;
+    border-width: 0 0 1px 1px;
+    border-style: solid;
+    border-color: silver;
+    perspective: 700px;
+  }
+
+  .base,
+  .target {
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    opacity: 0.8;
+  }
+
+  .base {
+    border: 3px dashed currentcolor;
+  }
+
+  .target {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: currentcolor;
+  }
+
+  .rotateX {
+    color: tomato;
+  }
+
+  .transform-rotateX {
+    color: violet;
+  }
+
+  .rotateY {
+    color: skyblue;
+  }
+
+  .transform-rotateY {
+    color: lightseagreen;
+  }
+
+  .rotateZ {
+    color: limegreen;
+  }
+
+  .transform-rotateZ {
+    color: lightcoral;
+  }
+  </style>
+</head>
+<body>
+
+<p><code>rotate: x 45deg</code></p>
+<div class="container">
+  <div class="base rotateX"></div>
+  <div class="target rotateX" style="rotate: x 45deg"></div>
+</div>
+
+<p><code>transform: rotateX(45deg)</code></p>
+<div class="container">
+  <div class="base transform-rotateX"></div>
+  <div class="target transform-rotateX" style="transform: rotateX(45deg)"></div>
+</div>
+
+<p><code>rotate: y 45deg</code></p>
+<div class="container">
+  <div class="base rotateY"></div>
+  <div class="target rotateY" style="rotate: y 45deg"></div>
+</div>
+
+<p><code>transform: rotateY(45deg)</code></p>
+<div class="container">
+  <div class="base transform-rotateY"></div>
+  <div class="target transform-rotateY" style="transform: rotateY(45deg)"></div>
+</div>
+
+<p><code>rotate: z 45deg</code></p>
+<div class="container">
+  <div class="base rotateZ"></div>
+  <div class="target rotateZ" style="rotate: z 45deg"></div>
+</div>
+
+<p><code>transform: rotateZ(45deg)</code></p>
+<div class="container">
+  <div class="base transform-rotateZ"></div>
+  <div class="target transform-rotateZ" style="transform: rotateZ(45deg)"></div>
+</div>
+
+</body>
+</html>

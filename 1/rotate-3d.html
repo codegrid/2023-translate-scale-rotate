@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
-  <title>rotateプロパティ 1</title>
+  <title>rotateプロパティ 3</title>
   <style>
   .container {
     position: relative;
@@ -45,16 +45,16 @@
 </head>
 <body>
 
-<p><code>rotate: 45deg</code></p>
+<p><code>rotate: 1 1 1 45deg</code></p>
 <div class="container">
   <div class="base rotate"></div>
-  <div class="target rotate" style="rotate: 45deg"></div>
+  <div class="target rotate" style="rotate: 1 1 1 45deg"></div>
 </div>
 
-<p><code>transform: rotate(45deg)</code></p>
+<p><code>transform: rotate3d(1, 1, 1, 45deg)</code></p>
 <div class="container">
   <div class="base transform"></div>
-  <div class="target transform" style="transform: rotate(45deg)"></div>
+  <div class="target transform" style="transform: rotate3d(1, 1, 1, 45deg)"></div>
 </div>
 
 </body>
